@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import MarkdownPreview from './MarkdownPreview';
 import './App.css';
 
-function App() {
+export function App() {
+
+  const [postContent, setPostContent] = useState('_Hello,_ **Markdown**!');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <div className='text-input'>
+      <label>Enter some markdown:</label>
+        <textarea
+          id='editor'
+          name='text'
+          autoFocus
+          value={postContent}
+          onChange={e => setPostContent(e.target.value)}
+        />
+      <hr /> 
+      </div>
+      <MarkdownPreview markdown={postContent} />
     </div>
   );
 }
