@@ -16,6 +16,7 @@ export function App() {
           id='editor'
           name='text'
           autoFocus
+          spellCheck='false'
           value={postContent}
           onChange={e => setPostContent(e.target.value)}
         />
